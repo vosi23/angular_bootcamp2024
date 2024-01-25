@@ -1,0 +1,9 @@
+
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="username">
+
+<p>Username: {{username}}</p>
+
+<button (click)="username = ''" [disabled]="!checkUserIfValid()"> Clear username </button>

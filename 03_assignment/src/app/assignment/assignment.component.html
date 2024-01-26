@@ -1,6 +1,6 @@
 <button (click)="changeSecretContentVisibility()" >Display Details</button>
-<p [hidden]="!secretContentVisibility"> secret password = pasta </p>
+<p *ngIf="secretContentVisibility"> secret password = pasta </p>
 
 <h4>Logs:</h4>
 
-<li [ngClass]="{whiteClass: logs.length > 5}" [ngStyle]="{backgroundColor: getBackgroundColor()}" *ngFor="let log of logs" >{{log}}</li>
+<li *ngFor="let log of logs; index as i" [ngClass]="{whiteClass: (i+1) >= 5}" [ngStyle]="{backgroundColor: getBackgroundColor(i+1)}">{{log}}</li>

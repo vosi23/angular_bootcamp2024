@@ -23,12 +23,12 @@ export class assignmentComponent
         this.logs.push(Date.now())
     }
 
-    getBackgroundColor()
+    getBackgroundColor(index: number)
     {
-        if (this.logs.length > 5)
+        if (index >= 5)
             return 'blue';
         
         // else return default color -> white 
-        return 'white';
+        return 'transparent';
     }
 }

@@ -6,4 +6,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Was needed to create two components manually
 
-One for the success alarm and the other one for warning alarm. (green and yellow) 
+One for the success alarm and the other one for warning alarm. (green and yellow) ✅

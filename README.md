@@ -13,7 +13,7 @@ ng new project--app-name
 
 # optional flags
 
---no--strict # disable strict move, avoids optimize angular, recommended for teaching mode
+--no-strict # disable strict move, avoids optimize angular, recommended mode for teaching
 --standalone false # disable the standalone mode, again good for teaching
 --routing false # disable rooting mode, where it's not used the routing should be disabled, good for teaching x3
 
@@ -38,6 +38,12 @@ npm start # npm start actually calls ng serve command
 #### Automatically using the CLI
 
 `ng generate component component-name`
+
+> If you want to create a component without the spec.ts file which is for testing the component
+
+> you need to enter the following parameter: --skip-tests true. Example:
+
+`ng generate component component-name --skip-tests true`
 
 #### Manually
 

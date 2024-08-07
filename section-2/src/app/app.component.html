@@ -1,0 +1,30 @@
+<app-header />
+
+<main>
+    <ul id="users">
+        <!-- This form of for was released with angular 17 version, until then as you remember 
+             from the first course was used directives inside of <li> tag: *ngFor="let user of users".
+             Also if you want to use the old for directive then you will need to include it in the typescript
+             file: import { ngFor } from '@angular/common' -->
+        <!-- IMPORTANT: both ways are working as well, but it is recommended after angular 17 to use
+             the method below -->
+        @for (user of users; track user.id)
+        {
+            <li>
+                <app-user [user]="user" (selectedUser)="onSelectUser($event)" />
+            </li>
+        }
+    </ul>
+
+    <!-- Like for instruction this applies also for if
+         Before angular 17 was only *ngIf="selectedUser".
+         In order to work this directive needs to be included in typescript file
+         from @angular/common: import { ngIf } from '@angular/common'  -->
+    @if (selectedUser)
+    {
+        <app-tasks [user]="selectedUser" />
+    } @else
+    {
+        <p id="fallback"> Please select a user. </p>
+    }
+</main>

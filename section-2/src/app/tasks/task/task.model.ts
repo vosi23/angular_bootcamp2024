@@ -7,3 +7,10 @@ export interface TaskI
   summary: string,
   dueDate: string,
 }
+
+export interface newTaskI
+{
+  title: string,
+  summary: string,
+  date: string,
+}

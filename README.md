@@ -1,11 +1,17 @@
 # angular_bootcamp2024
 bootcamp for teaching the angular properly
 
-## How to install the angular cli from nodejs
+## How to install the angular cli
+
+First step, you will need to install nodejs.
+
+After that you can install the angular with npm:
 
 `npm install -g @angular/cli`
 
 ## Starting a new application
+
+TODO: update the readme.md file from here on
 
 ```bash
 

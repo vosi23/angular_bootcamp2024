@@ -1,6 +1,8 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
+import { InvestmentsResults } from '../investment-input.mode';
+
 @Component({
   selector: 'app-investment-results',
   standalone: true,
@@ -14,12 +16,5 @@ export class InvestmentResultsComponent
   // in our example in user-input.compontent.ts
   // I like to use the classic ones, being more easy to understand from everyone
   // as being used from a much longer time than input() functionality
-  @Input() results?: {
-    year: number,
-    interest: number,
-    valueEndOfYear: number,
-    annualInvestment: number,
-    totalInterest: number,
-    totalAmountInvested: number,
-  }[];
+  @Input() results?: InvestmentsResults[];
 }

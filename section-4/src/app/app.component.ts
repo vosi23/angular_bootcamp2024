@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
-import { InvestmentInput } from './investment-input.mode';
+import { InvestmentInput, InvestmentsResults } from './investment-input.mode';
 import { InvestmentResultsComponent } from "./investment-results/investment-results.component";
 @Component({
   selector: 'app-root',
@@ -13,14 +13,14 @@ import { InvestmentResultsComponent } from "./investment-results/investment-resu
 })
 export class AppComponent
 {
-  resultsData?: {
-    year: number,
-    interest: number,
-    valueEndOfYear: number,
-    annualInvestment: number,
-    totalInterest: number,
-    totalAmountInvested: number,
-  }[];
+  resultsData?: InvestmentsResults[];
+  // instead of using this method
+  // can be used the signals as well
+  // like in the following example
+  // But however, I like the first method
+  // of course that is not the single change to make it work with signals
+  // please follow the documentation in order to see the entire process
+  // resultsData = signal<InvestmentsResults[] | undefined>(undefined);
 
   onCalculateInvestmentResults(data: InvestmentInput)
   {

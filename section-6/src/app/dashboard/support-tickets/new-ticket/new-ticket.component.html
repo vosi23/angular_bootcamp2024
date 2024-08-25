@@ -1,9 +1,16 @@
-<form>
+<!-- In order to avoid the classic behavior of sumbit from a form
+    we need to use this ngSubmit
+    But for this you will need to import FormsModule in ts component file -->
+<form (ngSubmit)="onSubmit(ticketTitle.value, ticketText.value)" #form>
     <app-control title="Title">
-        <input name="title" id="input" />
+        <!-- using the # and place it on the onSubmit call here
+         is the second way to pass it into the typescript code and just not use the two way binding.
+         This could also help sometimes, because will not renders every time a key was pressed in the text field.
+        -->
+        <input name="title" id="input" #ticketTitle />
     </app-control>
     <app-control title="Request">
-        <textarea name="request" id="textarea" rows="3"></textarea>
+        <textarea name="request" id="textarea" rows="3" #ticketText></textarea>
     </app-control>
     <p>
         <button appButton text="Submit"></button>

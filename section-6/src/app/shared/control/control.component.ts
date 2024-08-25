@@ -42,7 +42,7 @@ export class ControlComponent {
 
   private el= inject(ElementRef);
 
-  onClick()
+  onClick(): void
   {
     console.log('clicked');
   }

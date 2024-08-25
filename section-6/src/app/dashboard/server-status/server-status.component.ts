@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -11,8 +11,15 @@ import { Component, Input, OnInit } from '@angular/core';
 // OnInit is associated with ngOnInit here
 // basically force that this class must have the ngOnInit
 // function
-export class ServerStatusComponent implements OnInit {
+export class ServerStatusComponent implements OnInit, OnDestroy
+{
+  // with the following line we force to take only a value
+  // of the following ones: online, offline, unknown
+  // If we try to assign any other value to currenStatus
+  // then will complain about it and not compile further
   currentStatus: 'online' | 'offline' | 'unknown'= 'online';
+
+  private idInterval?: ReturnType<typeof setInterval>;
 
   // in the constructor should be placed small commands
   // which not take much time
@@ -26,7 +33,7 @@ export class ServerStatusComponent implements OnInit {
 
   ngOnInit()
   {
-    setInterval(() => {
+    this.idInterval= setInterval(() => {
       const rnd= Math.random(); // 0 - 1 (0.999)
       if (rnd < 0.5)
       {
@@ -40,4 +47,19 @@ export class ServerStatusComponent implements OnInit {
       }
     }, 5000);
   }
+
+  // ngOnDestroy has the same behavior as a destructor
+  ngOnDestroy(): void
+  {
+    clearTimeout(this.idInterval);
+  }
+  // there is also another alternative of ngOnDestroy
+  // a newer functionality which will not work on older versions
+  // private destroyRef= inject(DestroyRef);
+  // before ending ngOnInit function you will need to place
+  // this.destroyRef.onDestroy(() =>
+  // {
+  //   clearInterval(interval);
+  // });
+  // I prefer the classic method, I found this "elegant" method to be odd 
 }

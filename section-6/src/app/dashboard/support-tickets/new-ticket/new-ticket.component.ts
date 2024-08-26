@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from '../../../shared/control/control.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, RequiredValidator } from '@angular/forms';
+import { ticketsI } from '../support-tickets.model';
 
 @Component({
   selector: 'app-new-ticket',
@@ -25,10 +26,14 @@ export class NewTicketComponent
   // Example: can select more components with the same type, like ButtonComponent
   // @ViewChildren(ButtonCompon)
 
+  @Output() add= new EventEmitter<{title: string, text: string}>();
+
   onSubmit(ticketTitle: string, ticketText: string)
   {
-    console.log(ticketTitle);
-    console.log(ticketText);
+    this.add.emit({
+      title: ticketTitle,
+      text: ticketText
+    });
 
     this.form?.nativeElement.reset();
   }

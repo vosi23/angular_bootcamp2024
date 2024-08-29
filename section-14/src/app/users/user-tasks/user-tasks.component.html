@@ -1,10 +1,11 @@
 <section id="tasks">
   <header>
-    <h2>USERS Tasks</h2>
+    <h2>{{userName}}</h2>
     <menu>
-      <a>Add Task</a>
+      <!-- Angular supports also relative links, if it's a child component route -->
+      <a routerLink="tasks/new">Add Task</a>
     </menu>
   </header>
 
-  <p>Todo ...</p>
+  <router-outlet />
 </section>

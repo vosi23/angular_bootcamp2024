@@ -1,0 +1,15 @@
+<div>
+  <!-- routerLink is a functionality provided by angular team.
+        Is used instead of href, to avoid the html standard behaviour, to refresh all the page
+        only to modify some content of it. -->
+  <!-- routerLinkActive is a way to select a css style, however
+   this method replaces here the class because will render all the user components with the same style
+   With the routerLinkActive apply the style only when a specific component which is routed is active -->
+   <!-- [routerLink]="'/users/'+ user().id"
+        or 
+   -->
+  <a [routerLink]="['/users', user().id, 'tasks']" routerLinkActive="selected">
+    <img [src]="imagePath()" [alt]="user().name" />
+    <span>{{ user().name }}</span>
+  </a>
+</div>

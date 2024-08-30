@@ -1,0 +1,17 @@
+<app-card>
+  <article>
+      <h2>{{task.title}}</h2>
+      <!-- date here is actually a angular pipe, which allow
+        to format this date in a proper way,
+        to show a good format to the display
+        However this is the way that was described in the course,
+        If I would improve some things I would also use, if exists, or create
+        a datetime interface which should be used instead to set the type of a date as string
+      -->
+      <time>{{task.dueDate | date:'fullDate'}}</time>
+      <p>{{task.summary}}</p>
+      <p class="actions">
+          <button (click)="onCompleteTask()">Complete</button>
+      </p>
+  </article>
+</app-card>

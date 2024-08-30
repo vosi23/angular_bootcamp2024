@@ -1,0 +1,31 @@
+<div>
+    <ul>
+        @for(ticket of tickets; track ticket.id)
+        {
+            <li>
+                <app-ticket [data]="ticket" (resolve)="onResolveTicket(ticket.id)" />
+            </li>
+
+            <!-- useful properties you may need in future development
+                from @17 version later-->
+            @if ($first)
+            {
+                <!-- <p>first</p> -->
+            }
+            @if ($last)
+            {
+                <!-- <p>last</p>
+                <p> {{ $count }} </p> -->
+            }
+        }
+        <!-- If the list is empty Angular can display someting in this case
+            with the @empty syntax here, and place inside what do you want to add
+            while the list is empty -->
+        @empty
+        {
+            <p> No tickets available.</p>
+        }
+    </ul>
+</div>
+
+<app-new-ticket (add)="onAddTicket($event)"/>

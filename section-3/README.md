@@ -12,4 +12,4 @@ During the course I will add more details about the process in code files, as co
 I found important to mention that the modules can work with standalone components and vice versa.
 
 
-However nowadays it is not recommended to use the modules specially if a new project is developed since angular @17 version. But it's recommended to have it in mind, sometimes are situations where the modules are used and this section can be useful.
+However nowadays it is not recommended to use the modules specially if a new project is developed since angular @17 version. But it's important to know this way too, sometimes are situations where the modules are used this section can be useful.

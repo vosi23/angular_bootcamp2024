@@ -48,11 +48,11 @@ npm start # npm start actually calls ng serve command
 
 `ng g c <component-name>`
 
-> If you want to create a component without the spec.ts file which is for testing the component
+> If you want to create a component without the spec.ts file which is for unit testing
 
-> you need to enter the following parameter: --skip-tests true. Example:
+> needs to be added the following parameter: --skip-tests. Example:
 
-`ng generate component component-name --skip-tests true`
+`ng generate component component-name --skip-tests`
 
 > TODO: to be completed
 > mini tutorials and explications during the development and teaching in short words
